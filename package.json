@@ -1,0 +1,32 @@
+{
+  "name": "pyck",
+  "version": "0.0.0",
+  "description": "Pick elements based on condition.",
+  "main": "pyck.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volkovasystems/pyck.git"
+  },
+  "keywords": [
+    "array",
+    "pick",
+    "element",
+    "condition",
+    "pyck"
+  ],
+  "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/volkovasystems/pyck/issues"
+  },
+  "homepage": "https://github.com/volkovasystems/pyck#readme",
+  "dependencies": {
+    "harden": "^0.6.0",
+    "protype": "^0.2.0",
+    "raze": "^0.3.0",
+    "zelf": "^0.2.0"
+  }
+}

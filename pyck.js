@@ -41,6 +41,8 @@
 
 	@module-documentation:
 		Pick elements based on condition.
+
+		Conditions may be type, function, class or actual value to be compared.
 	@end-module-documentation
 
 	@include:
@@ -55,6 +57,7 @@
 */
 
 const doubt = require( "doubt" );
+const falzy = require( "falzy" );
 const harden = require( "harden" );
 const protype = require( "protype" );
 const raze = require( "raze" );
@@ -92,40 +95,43 @@ const pyck = function pyck( list, condition ){
 		@end-meta-configuration
 	*/
 
-	let conditionType = protype( condition );
 	if( doubt( condition ).ARRAY ){
 		return condition.reduce( function onEachCondition( accumulant, condition ){
 			return accumulant.concat( pyck( list, condition ) );
 		}, [ ] );
 
-	}else if( ( !conditionType.STRING &&
-			!conditionType.FUNCTION ) ||
-
-		( conditionType.STRING &&
-			condition != BOOLEAN &&
-			condition != FUNCTION &&
-			condition != NUMBER &&
-			condition != OBJECT &&
-			condition != STRING &&
-			condition != UNDEFINED &&
-			condition != SYMBOL ) )
-	{
+	}else if( falzy( condition ) ){
 		throw new Error( "invalid condition" );
 	}
 
 	let self = zelf( this );
+	let conditionType = protype( condition );
 
 	return raze( list )
 		.filter( function onEachElement( element, index ){
 			try{
-				if( conditionType.STRING ){
+				if( element === condition ){
+					return true;
+
+				}else if( conditionType.STRING &&
+					( condition == BOOLEAN ||
+						condition == FUNCTION ||
+						condition == NUMBER ||
+						condition == OBJECT ||
+						condition == STRING ||
+						condition == UNDEFINED ||
+						condition == SYMBOL ) )
+				{
 					return protype( element, condition );
 
 				}else if( conditionType.FUNCTION && ( /^[A-Z]/ ).test( condition.name ) ){
 					return ( element instanceof condition );
 
-				}else{
+				}else if( conditionType.FUNCTION ){
 					return condition.bind( self )( element, index );
+
+				}else{
+					return false;
 				}
 
 			}catch( error ){

@@ -45,6 +45,7 @@
 
 	@include:
 		{
+			"doubt": "doubt",
 			"harden": "harden",
 			"protype": "protype",
 			"raze": "raze",
@@ -53,6 +54,7 @@
 	@end-include
 */
 
+const doubt = require( "doubt" );
 const harden = require( "harden" );
 const protype = require( "protype" );
 const raze = require( "raze" );
@@ -76,14 +78,27 @@ const pyck = function pyck( list, condition ){
 				],
 				"condition:required": [
 					"string",
-					"function"
+					"function",
+					BOOLEAN,
+					FUNCTION,
+					NUMBER,
+					OBJECT,
+					STRING,
+					UNDEFINED,
+					SYMBOL,
+					"[string, function]"
 				]
 			}
 		@end-meta-configuration
 	*/
 
 	let conditionType = protype( condition );
-	if( ( !conditionType.STRING &&
+	if( doubt( condition ).ARRAY ){
+		return condition.reduce( function onEachCondition( accumulant, condition ){
+			return accumulant.concat( pyck( list, condition ) );
+		}, [ ] );
+
+	}else if( ( !conditionType.STRING &&
 			!conditionType.FUNCTION ) ||
 
 		( conditionType.STRING &&

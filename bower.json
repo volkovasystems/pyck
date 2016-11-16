@@ -1,6 +1,6 @@
 {
   "name": "pyck",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Pick elements based on condition.",
   "main": "pyck.js",
   "authors": [
@@ -26,6 +26,7 @@
     "harden": "^0.6.0",
     "protype": "^0.2.0",
     "raze": "^0.3.0",
-    "zelf": "^0.2.0"
+    "zelf": "^0.2.0",
+    "doubt": "^0.2.0"
   }
 }

@@ -43,24 +43,36 @@
 		Pick elements based on condition.
 
 		Conditions may be type, function, class or actual value to be compared.
+
+		Setting state will further check if the element is non-null, non-undefined,
+			non-empty string, object or array, not Infinity and NaN if state is true otherwise
+			it will check for falsy values.
+
+		If condition is a function it should return a boolean result else,
+			this will throw an error.
 	@end-module-documentation
 
 	@include:
 		{
 			"doubt": "doubt",
+			"falze": "falze",
+			"falzy": "falzy",
 			"harden": "harden",
 			"protype": "protype",
 			"raze": "raze",
+			"truu": "truu",
 			"zelf": "zelf"
 		}
 	@end-include
 */
 
 const doubt = require( "doubt" );
+const falze = require( "falze" );
 const falzy = require( "falzy" );
 const harden = require( "harden" );
 const protype = require( "protype" );
 const raze = require( "raze" );
+const truu = require( "truu" );
 const zelf = require( "zelf" );
 
 harden( "BOOLEAN", "boolean" );
@@ -71,7 +83,7 @@ harden( "STRING", "string" );
 harden( "UNDEFINED", "undefined" );
 harden( "SYMBOL", "symbol" );
 
-const pyck = function pyck( list, condition ){
+const pyck = function pyck( list, condition, state ){
 	/*;
 		@meta-configuration:
 			{
@@ -90,7 +102,8 @@ const pyck = function pyck( list, condition ){
 					UNDEFINED,
 					SYMBOL,
 					"[string, function]"
-				]
+				],
+				"state": "boolean"
 			}
 		@end-meta-configuration
 	*/
@@ -105,6 +118,7 @@ const pyck = function pyck( list, condition ){
 	}
 
 	let self = zelf( this );
+
 	let conditionType = protype( condition );
 
 	return raze( list )
@@ -122,20 +136,40 @@ const pyck = function pyck( list, condition ){
 						condition == UNDEFINED ||
 						condition == SYMBOL ) )
 				{
-					return protype( element, condition );
+					let result = protype( element, condition );
+
+					if( state === true && truu( element ) && result ){
+						return true;
+
+					}else if( state === true ){
+						return false;
+
+					}else if( state === false && falze( element ) ){
+						return true;
+
+					}else if( state === false ){
+						return false;
+
+					}else{
+						return result;
+					}
 
 				}else if( conditionType.FUNCTION && ( /^[A-Z]/ ).test( condition.name ) ){
 					return ( element instanceof condition );
 
 				}else if( conditionType.FUNCTION ){
-					return condition.bind( self )( element, index );
+					let result = condition.bind( self )( element, index );
 
-				}else{
-					return false;
+					if( !protype( result, BOOLEAN ) ){
+						throw new Error( `invalid condition result, ${ result }` );
+
+					}else{
+						return result;
+					}
 				}
 
 			}catch( error ){
-				throw new Error( `error testing condition at index, ${ index }, ${ error }` );
+				throw new Error( `error testing condition, ${ element }, ${ index }, ${ error }` );
 			}
 		} );
 };

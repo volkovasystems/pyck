@@ -1,6 +1,6 @@
 {
   "name": "pyck",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "dependencies": {
     "doubt": {
       "version": "0.4.0",
@@ -470,18 +470,18 @@
       }
     },
     "truu": {
-      "version": "0.2.0",
+      "version": "0.3.0",
       "from": "truu@latest",
-      "resolved": "https://registry.npmjs.org/truu/-/truu-0.2.0.tgz",
+      "resolved": "https://registry.npmjs.org/truu/-/truu-0.3.0.tgz",
       "dependencies": {
         "doubt": {
           "version": "0.4.0",
-          "from": "doubt@latest",
+          "from": "doubt@>=0.4.0 <0.5.0",
           "resolved": "https://registry.npmjs.org/doubt/-/doubt-0.4.0.tgz",
           "dependencies": {
             "cemento": {
               "version": "0.3.0",
-              "from": "cemento@latest",
+              "from": "https://registry.npmjs.org/cemento/-/cemento-0.3.0.tgz",
               "resolved": "https://registry.npmjs.org/cemento/-/cemento-0.3.0.tgz",
               "dependencies": {
                 "harden": {
@@ -493,12 +493,12 @@
             },
             "harden": {
               "version": "0.7.0",
-              "from": "harden@latest",
+              "from": "https://registry.npmjs.org/harden/-/harden-0.7.0.tgz",
               "resolved": "https://registry.npmjs.org/harden/-/harden-0.7.0.tgz"
             },
             "protype": {
               "version": "0.4.0",
-              "from": "protype@latest",
+              "from": "https://registry.npmjs.org/protype/-/protype-0.4.0.tgz",
               "resolved": "https://registry.npmjs.org/protype/-/protype-0.4.0.tgz",
               "dependencies": {
                 "cemento": {
@@ -524,7 +524,7 @@
         },
         "filled": {
           "version": "0.2.0",
-          "from": "filled@latest",
+          "from": "filled@0.2.0",
           "resolved": "https://registry.npmjs.org/filled/-/filled-0.2.0.tgz",
           "dependencies": {
             "doubt": {
@@ -577,7 +577,7 @@
             },
             "raze": {
               "version": "0.5.0",
-              "from": "raze@latest",
+              "from": "https://registry.npmjs.org/raze/-/raze-0.5.0.tgz",
               "resolved": "https://registry.npmjs.org/raze/-/raze-0.5.0.tgz",
               "dependencies": {
                 "doubt": {
@@ -630,7 +630,7 @@
                 },
                 "harden": {
                   "version": "0.7.0",
-                  "from": "harden@latest",
+                  "from": "https://registry.npmjs.org/harden/-/harden-0.7.0.tgz",
                   "resolved": "https://registry.npmjs.org/harden/-/harden-0.7.0.tgz"
                 }
               }
@@ -670,7 +670,7 @@
         },
         "protype": {
           "version": "0.4.0",
-          "from": "protype@latest",
+          "from": "protype@>=0.4.0 <0.5.0",
           "resolved": "https://registry.npmjs.org/protype/-/protype-0.4.0.tgz",
           "dependencies": {
             "cemento": {
@@ -694,7 +694,7 @@
         },
         "stuffed": {
           "version": "0.1.0",
-          "from": "stuffed@latest",
+          "from": "stuffed@>=0.1.0 <0.2.0",
           "resolved": "https://registry.npmjs.org/stuffed/-/stuffed-0.1.0.tgz",
           "dependencies": {
             "doubt": {
@@ -747,17 +747,17 @@
             },
             "kount": {
               "version": "0.0.0",
-              "from": "kount@latest",
+              "from": "https://registry.npmjs.org/kount/-/kount-0.0.0.tgz",
               "resolved": "https://registry.npmjs.org/kount/-/kount-0.0.0.tgz"
             },
             "protype": {
               "version": "0.4.0",
-              "from": "protype@latest",
+              "from": "https://registry.npmjs.org/protype/-/protype-0.4.0.tgz",
               "resolved": "https://registry.npmjs.org/protype/-/protype-0.4.0.tgz",
               "dependencies": {
                 "cemento": {
                   "version": "0.3.0",
-                  "from": "cemento@latest",
+                  "from": "https://registry.npmjs.org/cemento/-/cemento-0.3.0.tgz",
                   "resolved": "https://registry.npmjs.org/cemento/-/cemento-0.3.0.tgz",
                   "dependencies": {
                     "harden": {
@@ -769,7 +769,7 @@
                 },
                 "harden": {
                   "version": "0.7.0",
-                  "from": "harden@latest",
+                  "from": "https://registry.npmjs.org/harden/-/harden-0.7.0.tgz",
                   "resolved": "https://registry.npmjs.org/harden/-/harden-0.7.0.tgz"
                 }
               }
@@ -809,17 +809,17 @@
         },
         "truly": {
           "version": "0.3.0",
-          "from": "truly@latest",
+          "from": "truly@>=0.3.0 <0.4.0",
           "resolved": "https://registry.npmjs.org/truly/-/truly-0.3.0.tgz",
           "dependencies": {
             "protype": {
               "version": "0.4.0",
-              "from": "protype@latest",
+              "from": "https://registry.npmjs.org/protype/-/protype-0.4.0.tgz",
               "resolved": "https://registry.npmjs.org/protype/-/protype-0.4.0.tgz",
               "dependencies": {
                 "cemento": {
                   "version": "0.3.0",
-                  "from": "cemento@latest",
+                  "from": "https://registry.npmjs.org/cemento/-/cemento-0.3.0.tgz",
                   "resolved": "https://registry.npmjs.org/cemento/-/cemento-0.3.0.tgz",
                   "dependencies": {
                     "harden": {
@@ -831,7 +831,7 @@
                 },
                 "harden": {
                   "version": "0.7.0",
-                  "from": "harden@latest",
+                  "from": "https://registry.npmjs.org/harden/-/harden-0.7.0.tgz",
                   "resolved": "https://registry.npmjs.org/harden/-/harden-0.7.0.tgz"
                 }
               }

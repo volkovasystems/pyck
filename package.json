@@ -1,6 +1,6 @@
 {
   "name": "pyck",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Pick elements based on condition.",
   "main": "pyck.js",
   "scripts": {
@@ -18,6 +18,9 @@
     "pyck"
   ],
   "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "contributors": [
+    "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/volkovasystems/pyck/issues"
@@ -30,7 +33,7 @@
     "harden": "^0.9.0",
     "protype": "^0.4.0",
     "raze": "^0.5.0",
-    "truu": "^0.2.0",
+    "truu": "^0.3.0",
     "zelf": "^0.3.0"
   }
 }

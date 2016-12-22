@@ -3,8 +3,11 @@
   "version": "0.4.0",
   "description": "Pick elements based on condition.",
   "main": "pyck.js",
+  "support": "pyck.support.js",
+  "deploy": "pyck.deploy.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel pyck.js -o pyck.support.js && webpack",
+    "test": "mocha pyck-test.js"
   },
   "repository": {
     "type": "git",
@@ -27,13 +30,21 @@
   },
   "homepage": "https://github.com/volkovasystems/pyck#readme",
   "dependencies": {
-    "doubt": "^0.4.0",
-    "falze": "^0.2.0",
-    "falzy": "^0.5.0",
-    "harden": "^0.9.0",
-    "protype": "^0.4.0",
-    "raze": "^0.5.0",
-    "truu": "^0.3.0",
-    "zelf": "^0.3.0"
+    "babel-runtime": "^6.20.0",
+    "doubt": "^0.6.0",
+    "falze": "^0.3.0",
+    "falzy": "^0.7.0",
+    "harden": "^0.12.0",
+    "protype": "^0.7.0",
+    "raze": "^0.6.0",
+    "truu": "^0.4.0",
+    "zelf": "^0.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-latest": "^6.16.0",
+    "webpack": "^1.14.0"
   }
 }

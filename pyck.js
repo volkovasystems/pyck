@@ -3,7 +3,7 @@
 		The MIT License (MIT)
 		@mit-license
 
-		Copyright (@c) 2016 Richeve Siodina Bebedor
+		Copyright (@c) 2017 Richeve Siodina Bebedor
 		@email: richeve.bebedor@gmail.com
 
 		Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -57,6 +57,7 @@
 
 	@include:
 		{
+			"clazof": "clazof",
 			"doubt": "doubt",
 			"falze": "falze",
 			"falzy": "falzy",
@@ -69,6 +70,7 @@
 	@end-include
 */
 
+const clazof = require( "clazof" );
 const doubt = require( "doubt" );
 const falze = require( "falze" );
 const falzy = require( "falzy" );
@@ -158,7 +160,7 @@ const pyck = function pyck( list, condition, state ){
 					}
 
 				}else if( conditionType.FUNCTION && ( /^[A-Z]/ ).test( condition.name ) ){
-					return ( element instanceof condition );
+					return clazof( element, condition );
 
 				}else if( conditionType.FUNCTION ){
 					let result = condition.bind( self )( element, index );

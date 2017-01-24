@@ -113,7 +113,7 @@ const pyck = function pyck( list, condition, state ){
 		@end-meta-configuration
 	*/
 
-	if( doubt( condition ).ARRAY ){
+	if( doubt( condition, ARRAY ) ){
 		return condition.reduce( function onEachCondition( accumulant, condition ){
 			return accumulant.concat( pyck( list, condition ) );
 		}, [ ] );

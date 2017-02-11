@@ -1,3 +1,5 @@
+"use strict";
+
 /*;
 	@module-license:
 		The MIT License (MIT)
@@ -174,7 +176,7 @@ const pyck = function pyck( list, condition, state ){
 				}
 
 			}catch( error ){
-				throw new Error( `error testing condition, ${ element }, ${ index }, ${ error }` );
+				throw new Error( `error testing condition, ${ element }, ${ index }, ${ error.stack }` );
 			}
 		} );
 };

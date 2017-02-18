@@ -1,6 +1,6 @@
 {
   "name": "pyck",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Pick elements based on condition.",
   "main": "pyck.deploy.js",
   "support": "pyck.support.js",
@@ -24,14 +24,18 @@
     "test",
     "tests"
   ],
+  "resolutions": {
+    "doubt": "^0.17.0",
+    "raze": "^0.19.0"
+  },
   "dependencies": {
     "clazof": "^0.11.0",
-    "doubt": "^0.16.0",
+    "doubt": "^0.17.0",
     "falze": "^0.10.0",
     "falzy": "^0.13.0",
     "harden": "^0.16.0",
     "protype": "^0.17.0",
-    "raze": "^0.18.0",
+    "raze": "^0.19.0",
     "truu": "^0.11.0",
     "zelf": "^0.8.0"
   }

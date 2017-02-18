@@ -1,13 +1,13 @@
 {
   "name": "pyck",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Pick elements based on condition.",
   "main": "pyck.js",
   "support": "pyck.support.js",
   "deploy": "pyck.deploy.js",
   "browser": "pyck.deploy.js",
   "scripts": {
-    "build": "babel pyck.js --out-file pyck.support.js --source-maps && webpack --progress",
+    "build": "babel pyck.js --out-file pyck.support.js --source-maps && webpack --progress --display-modules",
     "test": "mocha pyck-test.js"
   },
   "repository": {
@@ -33,12 +33,12 @@
   "dependencies": {
     "babel-runtime": "^6.23.0",
     "clazof": "^0.11.0",
-    "doubt": "^0.16.0",
+    "doubt": "^0.17.0",
     "falze": "^0.10.0",
     "falzy": "^0.13.0",
     "harden": "^0.16.0",
     "protype": "^0.17.0",
-    "raze": "^0.18.0",
+    "raze": "^0.19.0",
     "truu": "^0.11.0",
     "zelf": "^0.8.0"
   },

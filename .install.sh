@@ -28,4 +28,5 @@ protype \
 raze \
 truu \
 zelf \
---save
+--save \
+--force-latest

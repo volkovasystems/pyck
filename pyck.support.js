@@ -61,12 +61,11 @@
               		{
               			"clazof": "clazof",
               			"doubt": "doubt",
-              			"falze": "falze",
               			"falzy": "falzy",
               			"harden": "harden",
               			"protype": "protype",
               			"raze": "raze",
-              			"truu": "truu",
+              			"truly": "truly",
               			"zelf": "zelf"
               		}
               	@end-include
@@ -74,12 +73,11 @@
 
 var clazof = require("clazof");
 var doubt = require("doubt");
-var falze = require("falze");
 var falzy = require("falzy");
 var harden = require("harden");
 var protype = require("protype");
 var raze = require("raze");
-var truu = require("truu");
+var truly = require("truly");
 var zelf = require("zelf");
 
 harden("BOOLEAN", "boolean");
@@ -145,13 +143,13 @@ var pyck = function pyck(list, condition, state) {
 			{
 				var result = protype(element, condition);
 
-				if (state === true && truu(element) && result) {
+				if (state === true && truly(element) && result) {
 					return true;
 
 				} else if (state === true) {
 					return false;
 
-				} else if (state === false && falze(element)) {
+				} else if (state === false && falzy(element)) {
 					return true;
 
 				} else if (state === false) {

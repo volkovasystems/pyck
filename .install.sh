@@ -2,12 +2,11 @@ yarn add \
 babel-runtime \
 clazof \
 doubt \
-falze \
 falzy \
 harden \
 protype \
 raze \
-truu \
+truly \
 zelf \
 --save && \
 yarn add \
@@ -21,12 +20,11 @@ webpack \
 bower install \
 clazof \
 doubt \
-falze \
 falzy \
 harden \
 protype \
 raze \
-truu \
+truly \
 zelf \
 --save \
 --force-latest

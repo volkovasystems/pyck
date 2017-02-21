@@ -1,6 +1,6 @@
 {
   "name": "pyck",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "description": "Pick elements based on condition.",
   "main": "pyck.deploy.js",
   "support": "pyck.support.js",

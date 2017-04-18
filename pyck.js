@@ -60,7 +60,6 @@
 			"clazof": "clazof",
 			"doubt": "doubt",
 			"falzy": "falzy",
-			"harden": "harden",
 			"protype": "protype",
 			"raze": "raze",
 			"truly": "truly",
@@ -72,19 +71,10 @@
 const clazof = require( "clazof" );
 const doubt = require( "doubt" );
 const falzy = require( "falzy" );
-const harden = require( "harden" );
 const protype = require( "protype" );
 const raze = require( "raze" );
 const truly = require( "truly" );
 const zelf = require( "zelf" );
-
-harden( "BOOLEAN", "boolean" );
-harden( "FUNCTION", "function" );
-harden( "NUMBER", "number" );
-harden( "OBJECT", "object" );
-harden( "STRING", "string" );
-harden( "UNDEFINED", "undefined" );
-harden( "SYMBOL", "symbol" );
 
 const pyck = function pyck( list, condition, state ){
 	/*;

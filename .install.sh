@@ -3,7 +3,6 @@ babel-runtime \
 clazof \
 doubt \
 falzy \
-harden \
 protype \
 raze \
 truly \
@@ -21,7 +20,6 @@ bower install \
 clazof \
 doubt \
 falzy \
-harden \
 protype \
 raze \
 truly \

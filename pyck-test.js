@@ -1,6 +1,8 @@
 "use strict";
 
+const assert = require( "assert" );
 const pyck = require( "./pyck.js" );
 
-console.log( pyck( [ 1, 2, 3 ], 2, true ) );
-console.log( pyck( ) );
+assert.ok( pyck( [ 1, 2, 3 ], 2, true ) );
+
+console.log( "ok" );

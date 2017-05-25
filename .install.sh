@@ -1,11 +1,7 @@
 yarn add \
 babel-runtime \
-clazof \
-doubt \
-falzy \
-protype \
+condev \
 raze \
-truly \
 zelf \
 --save && \
 yarn add \
@@ -17,12 +13,8 @@ source-map-loader \
 webpack \
 --dev && \
 bower install \
-clazof \
-doubt \
-falzy \
-protype \
+condev \
 raze \
-truly \
 zelf \
 --save \
 --force-latest

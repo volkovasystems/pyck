@@ -57,23 +57,15 @@
 
 	@include:
 		{
-			"clazof": "clazof",
-			"doubt": "doubt",
-			"falzy": "falzy",
-			"protype": "protype",
+			"condev": "condev",
 			"raze": "raze",
-			"truly": "truly",
 			"zelf": "zelf"
 		}
 	@end-include
 */
 
-const clazof = require( "clazof" );
-const doubt = require( "doubt" );
-const falzy = require( "falzy" );
-const protype = require( "protype" );
+const condev = require( "condev" );
 const raze = require( "raze" );
-const truly = require( "truly" );
 const zelf = require( "zelf" );
 
 const pyck = function pyck( list, condition, state ){
@@ -87,6 +79,7 @@ const pyck = function pyck( list, condition, state ){
 				"condition:required": [
 					"string",
 					"function",
+					RegExp,
 					BOOLEAN,
 					FUNCTION,
 					NUMBER,
@@ -94,77 +87,17 @@ const pyck = function pyck( list, condition, state ){
 					STRING,
 					UNDEFINED,
 					SYMBOL,
-					"[string, function]"
+					"*",
+					"[*]"
 				],
 				"state": "boolean"
 			}
 		@end-meta-configuration
 	*/
 
-	if( doubt( condition, ARRAY ) ){
-		return condition.reduce( function onEachCondition( accumulant, condition ){
-			return accumulant.concat( pyck( list, condition ) );
-		}, [ ] );
-
-	}else if( falzy( condition ) ){
-		throw new Error( "invalid condition" );
-	}
-
 	let self = zelf( this );
 
-	let conditionType = protype( condition );
-
-	return raze( list )
-		.filter( function onEachElement( element, index ){
-			try{
-				if( element === condition ){
-					return true;
-
-				}else if( conditionType.STRING &&
-					( condition == BOOLEAN ||
-						condition == FUNCTION ||
-						condition == NUMBER ||
-						condition == OBJECT ||
-						condition == STRING ||
-						condition == UNDEFINED ||
-						condition == SYMBOL ) )
-				{
-					let result = protype( element, condition );
-
-					if( state === true && truly( element ) && result ){
-						return true;
-
-					}else if( state === true ){
-						return false;
-
-					}else if( state === false && falzy( element ) ){
-						return true;
-
-					}else if( state === false ){
-						return false;
-
-					}else{
-						return result;
-					}
-
-				}else if( conditionType.FUNCTION && ( /^[A-Z]/ ).test( condition.name ) ){
-					return clazof( element, condition );
-
-				}else if( conditionType.FUNCTION ){
-					let result = condition.bind( self )( element, index );
-
-					if( !protype( result, BOOLEAN ) ){
-						throw new Error( `invalid condition result, ${ result }` );
-
-					}else{
-						return result;
-					}
-				}
-
-			}catch( error ){
-				throw new Error( `error testing condition, ${ element }, ${ index }, ${ error.stack }` );
-			}
-		} );
+	return raze( list ).filter( ( element ) => condev.bind( self )( element, condition, state ) );
 };
 
 module.exports = pyck;

@@ -57,23 +57,15 @@
               
               	@include:
               		{
-              			"clazof": "clazof",
-              			"doubt": "doubt",
-              			"falzy": "falzy",
-              			"protype": "protype",
+              			"condev": "condev",
               			"raze": "raze",
-              			"truly": "truly",
               			"zelf": "zelf"
               		}
               	@end-include
               */
 
-var clazof = require("clazof");
-var doubt = require("doubt");
-var falzy = require("falzy");
-var protype = require("protype");
+var condev = require("condev");
 var raze = require("raze");
-var truly = require("truly");
 var zelf = require("zelf");
 
 var pyck = function pyck(list, condition, state) {
@@ -87,6 +79,7 @@ var pyck = function pyck(list, condition, state) {
                                                   			"condition:required": [
                                                   				"string",
                                                   				"function",
+                                                  				RegExp,
                                                   				BOOLEAN,
                                                   				FUNCTION,
                                                   				NUMBER,
@@ -94,77 +87,17 @@ var pyck = function pyck(list, condition, state) {
                                                   				STRING,
                                                   				UNDEFINED,
                                                   				SYMBOL,
-                                                  				"[string, function]"
+                                                  				"*",
+                                                  				"[*]"
                                                   			],
                                                   			"state": "boolean"
                                                   		}
                                                   	@end-meta-configuration
                                                   */
 
-	if (doubt(condition, ARRAY)) {
-		return condition.reduce(function onEachCondition(accumulant, condition) {
-			return accumulant.concat(pyck(list, condition));
-		}, []);
-
-	} else if (falzy(condition)) {
-		throw new Error("invalid condition");
-	}
-
 	var self = zelf(this);
 
-	var conditionType = protype(condition);
-
-	return raze(list).
-	filter(function onEachElement(element, index) {
-		try {
-			if (element === condition) {
-				return true;
-
-			} else if (conditionType.STRING && (
-			condition == BOOLEAN ||
-			condition == FUNCTION ||
-			condition == NUMBER ||
-			condition == OBJECT ||
-			condition == STRING ||
-			condition == UNDEFINED ||
-			condition == SYMBOL))
-			{
-				var result = protype(element, condition);
-
-				if (state === true && truly(element) && result) {
-					return true;
-
-				} else if (state === true) {
-					return false;
-
-				} else if (state === false && falzy(element)) {
-					return true;
-
-				} else if (state === false) {
-					return false;
-
-				} else {
-					return result;
-				}
-
-			} else if (conditionType.FUNCTION && /^[A-Z]/.test(condition.name)) {
-				return clazof(element, condition);
-
-			} else if (conditionType.FUNCTION) {
-				var _result = condition.bind(self)(element, index);
-
-				if (!protype(_result, BOOLEAN)) {
-					throw new Error("invalid condition result, " + _result);
-
-				} else {
-					return _result;
-				}
-			}
-
-		} catch (error) {
-			throw new Error("error testing condition, " + element + ", " + index + ", " + error.stack);
-		}
-	});
+	return raze(list).filter(function (element) {return condev.bind(self)(element, condition, state);});
 };
 
 module.exports = pyck;

@@ -1,8 +1,27 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<script
-			type="application/javascript"
-			src="./pyck.deploy.js">
-		</script>
-	</head>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Pyck QUnit Example</title>
+	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
+	<script src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
+	<script type="application/javascript" src="./pyck.deploy.js"></script>
+</head>
+
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<script>
+		QUnit.test("ok test", function (assert) {
+
+			assert.deepEqual(pyck([1, 2, 3], 2, true), [2]);
+
+			assert.deepEqual(pyck([true, 2, 3, "hello"], NUMBER, true), [2, 3]);
+
+		});
+	</script>
+</body>
+
 </html>

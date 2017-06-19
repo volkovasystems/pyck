@@ -35,6 +35,12 @@
 
 				assert.deepEqual( pyck( [ Array, 1, 2, 3, { } ], FUNCTION ), [ Array ], "should be deeply equal" );
 
+				( function( ){
+
+					assert.deepEqual( Array.isArray( pyck( arguments, BOOLEAN ) ), true, "should return true" );
+
+				} )( 1, 2, "hello" );
+
 			} );
 		</script>
 	</body>

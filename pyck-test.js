@@ -18,4 +18,10 @@ assert.deepEqual( pyck( [ Date, 1, 2, 3 ], Date ), [ Date ], "should be deeply e
 
 assert.deepEqual( pyck( [ Array, 1, 2, 3, { } ], FUNCTION ), [ Array ], "should be deeply equal" );
 
+( function( ){
+
+	assert.deepEqual( Array.isArray( pyck( arguments, BOOLEAN ) ), true, "should return true" );
+
+} )( 1, 2, "hello" );
+
 console.log( "ok" );

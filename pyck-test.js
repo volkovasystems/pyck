@@ -20,7 +20,7 @@ assert.deepEqual( pyck( [ Array, 1, 2, 3, { } ], FUNCTION ), [ Array ], "should 
 
 ( function( ){
 
-	assert.deepEqual( Array.isArray( pyck( arguments, BOOLEAN ) ), true, "should return true" );
+	assert.deepEqual( pyck( arguments, BOOLEAN ), [ ], "should be deeply equal" );
 
 } )( 1, 2, "hello" );
 

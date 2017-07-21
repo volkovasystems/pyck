@@ -96,9 +96,9 @@ var pyck = function pyck(list, condition, state) {
                                                   	@end-meta-configuration
                                                   */
 
-	var self = zelf(this);
+	var filter = condev.bind(zelf(this));
 
-	return raze(list).filter(function (element) {return condev.bind(self)(element, condition, state);});
+	return raze(list).filter(function (element) {return filter(element, condition, state);});
 };
 
 module.exports = pyck;

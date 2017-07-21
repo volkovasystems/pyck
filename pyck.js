@@ -95,10 +95,10 @@ const pyck = function pyck( list, condition, state ){
 			}
 		@end-meta-configuration
 	*/
+	
+	let filter = condev.bind( zelf( this ) );
 
-	let self = zelf( this );
-
-	return raze( list ).filter( ( element ) => condev.bind( self )( element, condition, state ) );
+	return raze( list ).filter( ( element ) => filter( element, condition, state ) );
 };
 
 module.exports = pyck;

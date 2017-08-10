@@ -1,48 +1,28 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Pyck QUnit Example</title>
-	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
-	<script src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
-	<script type="application/javascript" src="./pyck.deploy.js"></script>
+		<title>test:pyck</title>
+
+		<link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css"/>
+
+		<script type="application/javascript" src="./pyck.deploy.js"></script>
 	</head>
 
 	<body>
-		<div id="qunit"></div>
-		<div id="qunit-fixture"></div>
-		<script>
-			QUnit.test("ok test", function (assert) {
+		<div id="mocha"></div>
 
+		<script type="application/javascript" src="https://unpkg.com/mocha/mocha.js"></script>
 
-				assert.deepEqual(pyck([1]), [], "should return empty array");;
+		<script type="application/javascript">
+			mocha.setup( "bdd" );
+		</script>
 
-				assert.deepEqual(pyck([1, 2, 3, "hello"], STRING), ["hello"], "should be deeply equal");
+		<script type="application/javascript" src="./test.deploy.js"></script>
 
-				assert.deepEqual(pyck([true, 2, 3, "hello"], NUMBER, true), [2, 3], "should be deeply equal");
-
-				assert.deepEqual(pyck([{}, 1, 2, 3], OBJECT), [{}], "should be deeply equal");
-
-				assert.deepEqual(pyck([1, 2, 3], [1]), [1], "should be deeply equal");
-
-				assert.deepEqual(pyck([1, 2, 3, [4, 5, 6, "a"]], NUMBER), [1, 2, 3], "should be deeply equal");
-
-				assert.deepEqual(pyck([Date, 1, 2, 3], Date), [Date], "should be deeply equal");
-
-				assert.deepEqual(pyck([Array, 1, 2, 3, {}], FUNCTION), [Array], "should be deeply equal");
-
-				(function () {
-
-					assert.deepEqual(Array.isArray(pyck(arguments, BOOLEAN)), true, "should return true");
-
-				})(1, 2, "hello");
-
-			});
+		<script type="application/javascript">
+			mocha.run( );
 		</script>
 	</body>
-
 </html>
-
-

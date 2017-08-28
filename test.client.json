@@ -1,0 +1,308 @@
+{
+	"state": {
+		"passed": 8,
+		"failed": 0,
+		"skipped": 0
+	},
+	"start": "2017-08-28T06:58:47.362Z",
+	"end": "2017-08-28T06:59:25.593Z",
+	"capabilities": {
+		"browserName": "chrome",
+		"chromeOptions": {
+			"args": [
+				"disable-gpu",
+				"headless"
+			]
+		},
+		"proxy": null
+	},
+	"host": "127.0.0.1",
+	"port": 4444,
+	"baseUrl": "http://localhost",
+	"framework": "mocha",
+	"mochaOpts": {
+		"timeout": 10000,
+		"ui": "bdd"
+	},
+	"suites": [
+		{
+			"name": "pyck",
+			"duration": 0,
+			"start": "2017-08-28T06:59:24.934Z",
+			"tests": [],
+			"hooks": []
+		},
+		{
+			"name": "pyck",
+			"duration": 479,
+			"start": "2017-08-28T06:59:24.934Z",
+			"end": "2017-08-28T06:59:25.413Z",
+			"tests": [],
+			"hooks": [
+				{
+					"start": "2017-08-28T06:59:24.936Z",
+					"end": "2017-08-28T06:59:24.936Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to empty array"
+				},
+				{
+					"start": "2017-08-28T06:59:25.058Z",
+					"end": "2017-08-28T06:59:25.059Z",
+					"duration": 1,
+					"title": "\"after each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to empty array"
+				},
+				{
+					"start": "2017-08-28T06:59:25.060Z",
+					"end": "2017-08-28T06:59:25.060Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ 'hello' ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.109Z",
+					"end": "2017-08-28T06:59:25.110Z",
+					"duration": 1,
+					"title": "\"after each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ 'hello' ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.110Z",
+					"end": "2017-08-28T06:59:25.111Z",
+					"duration": 1,
+					"title": "\"before each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ 2, 3 ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.158Z",
+					"end": "2017-08-28T06:59:25.159Z",
+					"duration": 1,
+					"title": "\"after each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ 2, 3 ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.159Z",
+					"end": "2017-08-28T06:59:25.159Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ { } ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.204Z",
+					"end": "2017-08-28T06:59:25.206Z",
+					"duration": 2,
+					"title": "\"after each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ { } ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.207Z",
+					"end": "2017-08-28T06:59:25.207Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ 1 ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.253Z",
+					"end": "2017-08-28T06:59:25.253Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ 1 ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.254Z",
+					"end": "2017-08-28T06:59:25.254Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ 1, 2, 3 ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.306Z",
+					"end": "2017-08-28T06:59:25.306Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ 1, 2, 3 ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.307Z",
+					"end": "2017-08-28T06:59:25.313Z",
+					"duration": 6,
+					"title": "\"before each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ Date ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.363Z",
+					"end": "2017-08-28T06:59:25.363Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ Date ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.366Z",
+					"end": "2017-08-28T06:59:25.368Z",
+					"duration": 2,
+					"title": "\"before each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ Array ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.413Z",
+					"end": "2017-08-28T06:59:25.413Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "pyck",
+					"associatedTest": "should be equal to [ Array ]"
+				},
+				{
+					"start": "2017-08-28T06:59:25.415Z",
+					"end": "2017-08-28T06:59:25.415Z",
+					"duration": 0,
+					"title": "\"after all\" hook",
+					"associatedSuite": "pyck"
+				}
+			]
+		},
+		{
+			"name": "`pyck( [ 1 ] )`",
+			"duration": 124,
+			"start": "2017-08-28T06:59:24.935Z",
+			"end": "2017-08-28T06:59:25.059Z",
+			"tests": [
+				{
+					"name": "should be equal to empty array",
+					"start": "2017-08-28T06:59:24.935Z",
+					"end": "2017-08-28T06:59:25.058Z",
+					"duration": 123,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`pyck( [ 1, 2, 3, 'hello' ], STRING )`",
+			"duration": 50,
+			"start": "2017-08-28T06:59:25.060Z",
+			"end": "2017-08-28T06:59:25.110Z",
+			"tests": [
+				{
+					"name": "should be equal to [ 'hello' ]",
+					"start": "2017-08-28T06:59:25.060Z",
+					"end": "2017-08-28T06:59:25.109Z",
+					"duration": 49,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`pyck( [ true, 2, 3, 'hello' ], NUMBER, true )`",
+			"duration": 49,
+			"start": "2017-08-28T06:59:25.110Z",
+			"end": "2017-08-28T06:59:25.159Z",
+			"tests": [
+				{
+					"name": "should be equal to [ 2, 3 ]",
+					"start": "2017-08-28T06:59:25.110Z",
+					"end": "2017-08-28T06:59:25.158Z",
+					"duration": 48,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`pyck( [ { }, 1, 2, 3 ], OBJECT )`",
+			"duration": 47,
+			"start": "2017-08-28T06:59:25.159Z",
+			"end": "2017-08-28T06:59:25.206Z",
+			"tests": [
+				{
+					"name": "should be equal to [ { } ]",
+					"start": "2017-08-28T06:59:25.159Z",
+					"end": "2017-08-28T06:59:25.204Z",
+					"duration": 45,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`pyck( [ 1, 2, 3 ], [ 1 ] )`",
+			"duration": 47,
+			"start": "2017-08-28T06:59:25.206Z",
+			"end": "2017-08-28T06:59:25.253Z",
+			"tests": [
+				{
+					"name": "should be equal to [ 1 ]",
+					"start": "2017-08-28T06:59:25.207Z",
+					"end": "2017-08-28T06:59:25.253Z",
+					"duration": 46,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`pyck( [ 1, 2, 3, [ 4, 5, 6, 'a' ] ], NUMBER )`",
+			"duration": 53,
+			"start": "2017-08-28T06:59:25.253Z",
+			"end": "2017-08-28T06:59:25.306Z",
+			"tests": [
+				{
+					"name": "should be equal to [ 1, 2, 3 ]",
+					"start": "2017-08-28T06:59:25.253Z",
+					"end": "2017-08-28T06:59:25.306Z",
+					"duration": 53,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`pyck( [ Date, 1, 2, 3 ], Date )`",
+			"duration": 56,
+			"start": "2017-08-28T06:59:25.307Z",
+			"end": "2017-08-28T06:59:25.363Z",
+			"tests": [
+				{
+					"name": "should be equal to [ Date ]",
+					"start": "2017-08-28T06:59:25.307Z",
+					"end": "2017-08-28T06:59:25.363Z",
+					"duration": 56,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`pyck( [ Array, 1, 2, 3, { } ], FUNCTION )`",
+			"duration": 50,
+			"start": "2017-08-28T06:59:25.363Z",
+			"end": "2017-08-28T06:59:25.413Z",
+			"tests": [
+				{
+					"name": "should be equal to [ Array ]",
+					"start": "2017-08-28T06:59:25.363Z",
+					"end": "2017-08-28T06:59:25.413Z",
+					"duration": 50,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		}
+	]
+}

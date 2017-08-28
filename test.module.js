@@ -70,6 +70,70 @@ const path = require( "path" );
 
 describe( "pyck", ( ) => {
 
+	describe( "`pyck( [ 1 ] )`", ( ) => {
+		it( "should be equal to empty array", ( ) => {
+
+			assert.deepEqual( pyck( [ 1 ] ), [ ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3, 'hello' ], STRING )`", ( ) => {
+		it( "should be equal to [ 'hello' ]", ( ) => {
+
+			assert.deepEqual( pyck( [ 1, 2, 3, "hello" ], STRING ), [ "hello" ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ true, 2, 3, 'hello' ], NUMBER, true )`", ( ) => {
+		it( "should be equal to [ 2, 3 ]", ( ) => {
+
+			assert.deepEqual( pyck( [ true, 2, 3, "hello" ], NUMBER, true ), [ 2, 3 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ { }, 1, 2, 3 ], OBJECT )`", ( ) => {
+		it( "should be equal to [ { } ]", ( ) => {
+
+			assert.deepEqual( pyck( [ { }, 1, 2, 3 ], OBJECT ), [ { } ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3 ], [ 1 ] )`", ( ) => {
+		it( "should be equal to [ 1 ]", ( ) => {
+
+			assert.deepEqual( pyck( [ 1, 2, 3 ], [ 1 ] ), [ 1 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3, [ 4, 5, 6, 'a' ] ], NUMBER )`", ( ) => {
+		it( "should be equal to [ 1, 2, 3 ]", ( ) => {
+
+			assert.deepEqual( pyck( [ 1, 2, 3, [ 4, 5, 6, "a" ] ], NUMBER ), [ 1, 2, 3 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ Date, 1, 2, 3 ], Date )`", ( ) => {
+		it( "should be equal to [ Date ]", ( ) => {
+
+			assert.deepEqual( pyck( [ Date, 1, 2, 3 ], Date ), [ Date ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ Array, 1, 2, 3, { } ], FUNCTION )`", ( ) => {
+		it( "should be equal to [ Array ]", ( ) => {
+
+			assert.deepEqual( pyck( [ Array, 1, 2, 3, { } ], FUNCTION ), [ Array ] );
+
+		} );
+	} );
+
 } );
 
 //: @end-server
@@ -78,6 +142,71 @@ describe( "pyck", ( ) => {
 //: @client:
 
 describe( "pyck", ( ) => {
+
+	describe( "`pyck( [ 1 ] )`", ( ) => {
+		it( "should be equal to empty array", ( ) => {
+
+			assert.deepEqual( pyck( [ 1 ] ), [ ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3, 'hello' ], STRING )`", ( ) => {
+		it( "should be equal to [ 'hello' ]", ( ) => {
+
+			assert.deepEqual( pyck( [ 1, 2, 3, "hello" ], STRING ), [ "hello" ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ true, 2, 3, 'hello' ], NUMBER, true )`", ( ) => {
+		it( "should be equal to [ 2, 3 ]", ( ) => {
+
+			assert.deepEqual( pyck( [ true, 2, 3, "hello" ], NUMBER, true ), [ 2, 3 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ { }, 1, 2, 3 ], OBJECT )`", ( ) => {
+		it( "should be equal to [ { } ]", ( ) => {
+
+			assert.deepEqual( pyck( [ { }, 1, 2, 3 ], OBJECT ), [ { } ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3 ], [ 1 ] )`", ( ) => {
+		it( "should be equal to [ 1 ]", ( ) => {
+
+			assert.deepEqual( pyck( [ 1, 2, 3 ], [ 1 ] ), [ 1 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3, [ 4, 5, 6, 'a' ] ], NUMBER )`", ( ) => {
+		it( "should be equal to [ 1, 2, 3 ]", ( ) => {
+
+			assert.deepEqual( pyck( [ 1, 2, 3, [ 4, 5, 6, "a" ] ], NUMBER ), [ 1, 2, 3 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ Date, 1, 2, 3 ], Date )`", ( ) => {
+		it( "should be equal to [ Date ]", ( ) => {
+
+			assert.deepEqual( pyck( [ Date, 1, 2, 3 ], Date ), [ Date ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ Array, 1, 2, 3, { } ], FUNCTION )`", ( ) => {
+		it( "should be equal to [ Array ]", ( ) => {
+
+			assert.deepEqual( pyck( [ Array, 1, 2, 3, { } ], FUNCTION ), [ Array ] );
+
+		} );
+	} );
+
 } );
 
 //: @end-client
@@ -86,6 +215,151 @@ describe( "pyck", ( ) => {
 //: @bridge:
 
 describe( "pyck", ( ) => {
+
+	let bridgeURL = `file://${ path.resolve( __dirname, "bridge.html" ) }`;
+
+	describe( "`pyck( [ 1 ] )`", ( ) => {
+		it( "should be equal to empty array", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return JSON.stringify( pyck( [ 1 ] ) );
+				}
+
+			).value;
+			//: @end-ignore
+			assert.deepEqual( JSON.parse( result ), [ ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3, 'hello' ], STRING )`", ( ) => {
+		it( "should be equal to [ 'hello' ]", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+
+					return JSON.stringify( pyck( [ 1, 2, 3, "hello" ], STRING ) );
+
+				}
+
+			).value;
+			//: @end-ignore
+			assert.deepEqual( JSON.parse( result ), [ "hello" ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ true, 2, 3, 'hello' ], NUMBER, true )`", ( ) => {
+		it( "should be equal to [ 2, 3 ]", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+
+					return JSON.stringify( pyck( [ true, 2, 3, "hello" ], NUMBER, true ) );
+
+				}
+
+			).value;
+			//: @end-ignore
+			assert.deepEqual( JSON.parse( result ), [ 2, 3 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ { }, 1, 2, 3 ], OBJECT )`", ( ) => {
+		it( "should be equal to [ { } ]", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+
+					return JSON.stringify( pyck( [ { }, 1, 2, 3 ], OBJECT ) );
+
+				}
+
+			).value;
+			//: @end-ignore
+			assert.deepEqual( JSON.parse( result ), [ { } ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3 ], [ 1 ] )`", ( ) => {
+		it( "should be equal to [ 1 ]", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+
+					return JSON.stringify( pyck( [ 1, 2, 3 ], [ 1 ] ) );
+
+				}
+
+			).value;
+			//: @end-ignore
+			assert.deepEqual( JSON.parse( result ), [ 1 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3, [ 4, 5, 6, 'a' ] ], NUMBER )`", ( ) => {
+		it( "should be equal to [ 1, 2, 3 ]", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+
+					return JSON.stringify( pyck( [ 1, 2, 3, [ 4, 5, 6, "a" ] ], NUMBER ) );
+
+				}
+
+			).value;
+			//: @end-ignore
+			assert.deepEqual( JSON.parse( result ), [ 1, 2, 3 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ Date, 1, 2, 3 ], Date )`", ( ) => {
+		it( "should be equal to [ Date ]", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+
+					return pyck( [ Date, 1, 2, 3 ], Date )[ 0 ] == Date;
+
+				}
+
+			).value;
+			//: @end-ignore
+			assert.equal( result, true );
+
+		} );
+	} );
+
+	describe( "`pyck( [ Array, 1, 2, 3, { } ], FUNCTION )`", ( ) => {
+		it( "should be equal to [ Array ]", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+
+					return pyck( [ Array, 1, 2, 3, { } ], FUNCTION )[ 0 ] == Array;
+
+				}
+
+			).value;
+			//: @end-ignore
+			assert.equal( result, true );
+
+		} );
+	} );
+
 } );
 
 //: @end-bridge

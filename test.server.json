@@ -1,16 +1,130 @@
 {
-  "stats": {
-    "suites": 0,
-    "tests": 0,
-    "passes": 0,
-    "pending": 0,
-    "failures": 0,
-    "start": "2017-08-10T17:35:55.922Z",
-    "end": "2017-08-10T17:35:55.922Z",
-    "duration": 0
-  },
-  "tests": [],
-  "pending": [],
-  "failures": [],
-  "passes": []
+	"stats": {
+		"suites": 9,
+		"tests": 8,
+		"passes": 8,
+		"pending": 0,
+		"failures": 0,
+		"start": "2017-08-28T06:58:46.181Z",
+		"end": "2017-08-28T06:58:46.192Z",
+		"duration": 11
+	},
+	"tests": [
+		{
+			"title": "should be equal to empty array",
+			"fullTitle": "pyck `pyck( [ 1 ] )` should be equal to empty array",
+			"duration": 1,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ 'hello' ]",
+			"fullTitle": "pyck `pyck( [ 1, 2, 3, 'hello' ], STRING )` should be equal to [ 'hello' ]",
+			"duration": 1,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ 2, 3 ]",
+			"fullTitle": "pyck `pyck( [ true, 2, 3, 'hello' ], NUMBER, true )` should be equal to [ 2, 3 ]",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ { } ]",
+			"fullTitle": "pyck `pyck( [ { }, 1, 2, 3 ], OBJECT )` should be equal to [ { } ]",
+			"duration": 1,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ 1 ]",
+			"fullTitle": "pyck `pyck( [ 1, 2, 3 ], [ 1 ] )` should be equal to [ 1 ]",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ 1, 2, 3 ]",
+			"fullTitle": "pyck `pyck( [ 1, 2, 3, [ 4, 5, 6, 'a' ] ], NUMBER )` should be equal to [ 1, 2, 3 ]",
+			"duration": 1,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ Date ]",
+			"fullTitle": "pyck `pyck( [ Date, 1, 2, 3 ], Date )` should be equal to [ Date ]",
+			"duration": 3,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ Array ]",
+			"fullTitle": "pyck `pyck( [ Array, 1, 2, 3, { } ], FUNCTION )` should be equal to [ Array ]",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		}
+	],
+	"pending": [],
+	"failures": [],
+	"passes": [
+		{
+			"title": "should be equal to empty array",
+			"fullTitle": "pyck `pyck( [ 1 ] )` should be equal to empty array",
+			"duration": 1,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ 'hello' ]",
+			"fullTitle": "pyck `pyck( [ 1, 2, 3, 'hello' ], STRING )` should be equal to [ 'hello' ]",
+			"duration": 1,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ 2, 3 ]",
+			"fullTitle": "pyck `pyck( [ true, 2, 3, 'hello' ], NUMBER, true )` should be equal to [ 2, 3 ]",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ { } ]",
+			"fullTitle": "pyck `pyck( [ { }, 1, 2, 3 ], OBJECT )` should be equal to [ { } ]",
+			"duration": 1,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ 1 ]",
+			"fullTitle": "pyck `pyck( [ 1, 2, 3 ], [ 1 ] )` should be equal to [ 1 ]",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ 1, 2, 3 ]",
+			"fullTitle": "pyck `pyck( [ 1, 2, 3, [ 4, 5, 6, 'a' ] ], NUMBER )` should be equal to [ 1, 2, 3 ]",
+			"duration": 1,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ Date ]",
+			"fullTitle": "pyck `pyck( [ Date, 1, 2, 3 ], Date )` should be equal to [ Date ]",
+			"duration": 3,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to [ Array ]",
+			"fullTitle": "pyck `pyck( [ Array, 1, 2, 3, { } ], FUNCTION )` should be equal to [ Array ]",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		}
+	]
 }

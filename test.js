@@ -66,6 +66,70 @@ const pyck = require( "./pyck.js" );
 
 describe( "pyck", ( ) => {
 
+	describe( "`pyck( [ 1 ] )`", ( ) => {
+		it( "should be equal to empty array", ( ) => {
+
+			assert.deepEqual( pyck( [ 1 ] ), [ ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3, 'hello' ], STRING )`", ( ) => {
+		it( "should be equal to [ 'hello' ]", ( ) => {
+
+			assert.deepEqual( pyck( [ 1, 2, 3, "hello" ], STRING ), [ "hello" ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ true, 2, 3, 'hello' ], NUMBER, true )`", ( ) => {
+		it( "should be equal to [ 2, 3 ]", ( ) => {
+
+			assert.deepEqual( pyck( [ true, 2, 3, "hello" ], NUMBER, true ), [ 2, 3 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ { }, 1, 2, 3 ], OBJECT )`", ( ) => {
+		it( "should be equal to [ { } ]", ( ) => {
+
+			assert.deepEqual( pyck( [ { }, 1, 2, 3 ], OBJECT ), [ { } ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3 ], [ 1 ] )`", ( ) => {
+		it( "should be equal to [ 1 ]", ( ) => {
+
+			assert.deepEqual( pyck( [ 1, 2, 3 ], [ 1 ] ), [ 1 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ 1, 2, 3, [ 4, 5, 6, 'a' ] ], NUMBER )`", ( ) => {
+		it( "should be equal to [ 1, 2, 3 ]", ( ) => {
+
+			assert.deepEqual( pyck( [ 1, 2, 3, [ 4, 5, 6, "a" ] ], NUMBER ), [ 1, 2, 3 ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ Date, 1, 2, 3 ], Date )`", ( ) => {
+		it( "should be equal to [ Date ]", ( ) => {
+
+			assert.deepEqual( pyck( [ Date, 1, 2, 3 ], Date ), [ Date ] );
+
+		} );
+	} );
+
+	describe( "`pyck( [ Array, 1, 2, 3, { } ], FUNCTION )`", ( ) => {
+		it( "should be equal to [ Array ]", ( ) => {
+
+			assert.deepEqual( pyck( [ Array, 1, 2, 3, { } ], FUNCTION ), [ Array ] );
+
+		} );
+	} );
+
 } );
 
 //: @end-server
